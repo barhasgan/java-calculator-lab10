@@ -31,11 +31,10 @@
                 <version>3.2.5</version>
             </plugin>
             
-            <plugin>
+           <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.11</version>
-                <executions>
+                <version>0.8.11</version>  <executions>
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
@@ -53,7 +52,7 @@
                         <goals>
                             <goal>check</goal>
                         </goals>
-                       <configuration>
+                        <configuration>
                             <rules>
                                 <rule>
                                     <limits>
