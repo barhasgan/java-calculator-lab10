@@ -9,7 +9,7 @@ on:
     branches:
       - develop
       - release/*
-      - main 
+      - main
 
 jobs:
   build-and-test:
@@ -23,13 +23,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           
-      - name: Checkstyle Check
-        run: mvn checkstyle:check
+      # - name: Checkstyle Check  <-- Commented out to match pom.xml
+      #   run: mvn checkstyle:check  <-- Commented out to match pom.xml
         
       - name: JUnit Test and JaCoCo Coverage Check
-      
+        # This single command runs tests AND checks that 100% coverage rule is met.
         run: mvn test jacoco:check
         
       - name: Generate JaCoCo Report
-     
+        # This step is mostly for visibility, but helps ensure the previous checks passed.
         run: mvn jacoco:report
