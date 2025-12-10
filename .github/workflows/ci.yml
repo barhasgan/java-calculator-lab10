@@ -16,20 +16,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          
-      # - name: Checkstyle Check  <-- Commented out to match pom.xml
-      #   run: mvn checkstyle:check  <-- Commented out to match pom.xml
-        
+
+      # - name: Checkstyle Check  <-- This line and the one below MUST be commented out or removed.
+      #   run: mvn checkstyle:check
+
       - name: JUnit Test and JaCoCo Coverage Check
         # This single command runs tests AND checks that 100% coverage rule is met.
         run: mvn test jacoco:check
-        
+
       - name: Generate JaCoCo Report
         # This step is mostly for visibility, but helps ensure the previous checks passed.
         run: mvn jacoco:report
